@@ -1,0 +1,13 @@
+﻿@page "/"
+@inherits ApplicantsList
+
+<h1>Selected Applicants Count:@ApplicantsSelectedCount</h1>
+<input type="checkbox" id="showFooter" @bind="ShowFooter" />
+<label for="showFooter">Show Footer</label>
+<div class="card-deck">
+    @if (Applicants != null)
+        @foreach (var applicant in Applicants)
+        {
+            <DisplayApplicant Applicant="applicant" ShowFooter="ShowFooter" OnApplicantSelected="ApplicantSelectedChange"></DisplayApplicant>
+        }
+</div>
