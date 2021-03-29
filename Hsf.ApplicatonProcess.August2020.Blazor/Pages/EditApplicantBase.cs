@@ -31,5 +31,10 @@ namespace Hsf.ApplicatonProcess.August2020.Blazor.Pages
                 NavigationManager.NavigateTo("/");
             }
         }
+        protected async Task Delete_Click()
+        {
+            await ApplicantService.DeleteApplicant(Applicant.ID);
+            NavigationManager.NavigateTo("/");
+        }
     }
 }
