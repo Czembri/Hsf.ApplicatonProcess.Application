@@ -124,10 +124,6 @@ namespace Hsf.ApplicatonProcess.August2020.Web.Controllers
         {
             try
             {
-                if (id != applicant.ID)
-                {
-                    return BadRequest("Applicant ID mismatch");
-                }
                 var applicantToUpdate = await applicantRepository.GetApplicant(id);
 
                 if (applicantToUpdate == null)
@@ -138,6 +134,7 @@ namespace Hsf.ApplicatonProcess.August2020.Web.Controllers
                 Log.Information($"[object=Applicant; id={id}] has been updated");
                 Log.Debug($"Updated object: [{applicantToUpdate}]");
                 return await applicantRepository.UpdateApplicant(applicant);
+
             }
             catch (Exception err)
             {
