@@ -21,11 +21,27 @@ namespace Hsf.ApplicatonProcess.August2020.Blazor.Pages
         public NavigationManager NavigationManager { get; set; }
         protected async override Task OnInitializedAsync()
         {
-            Applicant = await ApplicantService.GetApplicant(int.Parse(Id));
+            int.TryParse(Id, out int applicantID);
+            if(applicantID != 0)
+            {
+                Applicant = await ApplicantService.GetApplicant(int.Parse(Id));
+            }
+            else
+            {
+                Applicant = new Applicant();
+            }
         }
         protected async Task HandleValidSubmit()
         {
-            var result = await ApplicantService.UpdateApplicant(Applicant);
+            Applicant result = null;
+            if(Applicant.ID != 0)
+            {
+                result = await ApplicantService.UpdateApplicant(Applicant);
+            }
+            else
+            {
+                result = await ApplicantService.CreateApplicant(Applicant);
+            }
             if (result != null)
             {
                 NavigationManager.NavigateTo("/");

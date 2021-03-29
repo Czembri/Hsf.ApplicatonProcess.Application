@@ -1,6 +1,7 @@
 ﻿@page "/editapplicant/{id}"
+@page "/editapplicant"
 
-@inherits EditApplicantBase 
+@inherits EditApplicantBase
 
 <EditForm Model="@Applicant" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
