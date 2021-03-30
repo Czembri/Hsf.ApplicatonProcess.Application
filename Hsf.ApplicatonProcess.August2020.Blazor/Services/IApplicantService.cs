@@ -13,7 +13,5 @@ namespace Hsf.ApplicatonProcess.August2020.Blazor.Services
         Task<Applicant> UpdateApplicant(Applicant applicant);
         Task DeleteApplicant(int id);
         Task<Applicant> CreateApplicant(Applicant applicant);
-
-
     }
 }

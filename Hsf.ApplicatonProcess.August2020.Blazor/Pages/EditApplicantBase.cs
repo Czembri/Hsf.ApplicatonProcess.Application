@@ -1,9 +1,11 @@
 ﻿using Hsf.ApplicatonProcess.August2020.Blazor.Services;
+using Hsf.ApplicatonProcess.August2020.Data;
 using Hsf.ApplicatonProcess.August2020.Domain;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Hsf.ApplicatonProcess.August2020.Blazor.Pages
@@ -13,7 +15,10 @@ namespace Hsf.ApplicatonProcess.August2020.Blazor.Pages
         [Inject]
         public IApplicantService ApplicantService { get; set; }
 
+        public List<string> Countries { get; set; }
+        
         public Applicant Applicant { get; set; } = new Applicant();
+
 
         [Parameter]
         public string Id { get; set; }
@@ -30,6 +35,10 @@ namespace Hsf.ApplicatonProcess.August2020.Blazor.Pages
             {
                 Applicant = new Applicant();
             }
+
+            var cc = new CountriesList();
+            Countries = cc.GetNames();
+
         }
         protected async Task HandleValidSubmit()
         {

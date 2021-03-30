@@ -42,8 +42,16 @@
             Country of Origin
         </label>
         <div class="col-sm-10">
-            <InputText id="coo" class="form-control" placeholder="Country of Origin"
-                       @bind-Value="Applicant.CountryOfOrigin" />
+            <InputSelect id="coo" class="form-control" placeholder="Country of Origin"
+                         @bind-Value="Applicant.CountryOfOrigin">
+                @if (Countries != null)
+                {
+                    @foreach (var country in Countries)
+                    {
+                        <option value="@country">@country</option>
+                    }
+                }
+            </InputSelect>
             <ValidationMessage For="@(() => Applicant.CountryOfOrigin)" />
         </div>
     </div>
