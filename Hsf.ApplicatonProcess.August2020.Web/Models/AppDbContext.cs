@@ -14,6 +14,7 @@ namespace Hsf.ApplicatonProcess.August2020.Web.Models
 
         }
         public DbSet<Applicant> Applicants { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

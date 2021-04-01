@@ -4,4 +4,12 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http.Formatting.Extension" Version="5.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hsf.ApplicatonProcess.August2020.Domain\Hsf.ApplicatonProcess.August2020.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

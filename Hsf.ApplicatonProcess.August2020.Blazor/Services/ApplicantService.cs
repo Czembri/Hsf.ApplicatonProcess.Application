@@ -28,5 +28,18 @@ namespace Hsf.ApplicatonProcess.August2020.Blazor.Services
         {
             return await httpClient.GetJsonAsync<Applicant[]>("api/applicants");
         }
+        public async Task<Applicant> UpdateApplicant(Applicant updateApplicant)
+        {
+            return await httpClient.PutJsonAsync<Applicant>($"api/applicants/{updateApplicant.ID}", updateApplicant);
+        }
+        public async Task DeleteApplicant(int id)
+        {
+            await httpClient.DeleteAsync($"api/applicants/{id}");
+        }
+
+        public async Task<Applicant> CreateApplicant(Applicant updateApplicant)
+        {
+            return await httpClient.PostJsonAsync<Applicant>("api/applicants", updateApplicant);
+        }
     }
 }
